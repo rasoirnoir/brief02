@@ -7,8 +7,8 @@ const AIGUILLESEC = document.querySelector("#second");
 const currentHour = new Date();
 
 //Stocker l'heure , minute , seconde  dans des varaiables
-let hour = currentHour.getHours();
-let minute = currentHour.getMinutes();
+let hour = currentHour.getHours() * 3600;
+let minute = currentHour.getMinutes() * 60;
 let second = currentHour.getSeconds();
 console.log(hour, minute, second);
 
@@ -17,9 +17,9 @@ console.log(hour, minute, second);
 
 //On initialise les valeurs
 let angleSeconde = (second * 6) % 360; //(360/60 pour avoir la valeur d'angle d'une seconde)
-let angleMinute = (minute * 6 + second * 0.1) % 360; //360/60/60 pour avoir la valeur d'angle d'une minute
+let angleMinute = ((minute + second) * 0.1) % 360; //360/60/60 pour avoir la valeur d'angle d'une minute
 // let angleHour = (hour * 30 + (minute / 60) * 30) % 360; //360/60/60/60 pour avoir la valeur d'angle d'une heure
-let angleHour = (hour * 30 + (minute / 60) * 30) % 360; //360/60/60/60 pour avoir la valeur d'angle d'une heure
+let angleHour = ((hour + minute + second) * 0.0083) % 360; //360/60/60/60 pour avoir la valeur d'angle d'une heure
 console.log(
   `angleHour : ${angleHour.toFixed(2)}, angleMinute : ${angleMinute.toFixed(
     2
