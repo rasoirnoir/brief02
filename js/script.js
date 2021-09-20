@@ -12,13 +12,9 @@ let minute = currentHour.getMinutes() * 60;
 let second = currentHour.getSeconds();
 console.log(hour, minute, second);
 
-// Calculer de degré de mouvement de l'aiguille heure, de l'aiguille minute, de l'aiguille seconde
-// Hint : Tous les aiguilles doivent se déplacer chaque second selon un degré
-
-//On initialise les valeurs
+//On initialise les valeurs des angles
 let angleSeconde = (second * 6) % 360; //(360/60 pour avoir la valeur d'angle d'une seconde)
 let angleMinute = ((minute + second) * 0.1) % 360; //360/60/60 pour avoir la valeur d'angle d'une minute
-// let angleHour = (hour * 30 + (minute / 60) * 30) % 360; //360/60/60/60 pour avoir la valeur d'angle d'une heure
 let angleHour = ((hour + minute + second) * 0.0083) % 360; //360/60/60/60 pour avoir la valeur d'angle d'une heure
 console.log(
   `angleHour : ${angleHour.toFixed(2)}, angleMinute : ${angleMinute.toFixed(
